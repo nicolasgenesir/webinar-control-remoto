@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Control Remoto · Masterclass para dueños de negocios</title>
+  <meta name="description" content="Masterclass en vivo el 5 de noviembre: el sistema Control Remoto para delegar sin perder el control y poder abrir más sucursales.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:title" content="Control Remoto · Masterclass para dueños de negocios">
+  <meta property="og:description" content="Masterclass en vivo el 5 de noviembre: el sistema Control Remoto para delegar sin perder el control y poder abrir más sucursales.">
+  <meta property="og:image" content="/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Control Remoto: el sistema para que tu negocio funcione sin vos — Jueves 5 de noviembre 16:00 h">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Control Remoto · Masterclass para dueños de negocios">
+  <meta name="twitter:description" content="Masterclass en vivo el 5 de noviembre: el sistema Control Remoto para delegar sin perder el control y poder abrir más sucursales.">
+  <meta name="twitter:image" content="/og.png">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/plus-jakarta-sans-800.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/plus-jakarta-sans-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1168146992014424');
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1168146992014424&ev=PageView&noscript=1" alt="Seguimiento de Meta Pixel">
+  </noscript>
+  <!-- End Meta Pixel Code -->
+</head>
+<body>
+  <!--
+    FOTOS PENDIENTES DE CARGAR (nombres y dimensiones mínimas exactas):
+    - assets/nico.jpg (relación 4:5, mínimo 800×1000 px)
+    - assets/casos/ivan.jpg (cuadrada 1:1, mínimo 240×240 px)
+    - assets/casos/tommy.jpg (cuadrada 1:1, mínimo 240×240 px)
+    - assets/casos/abner.jpg (cuadrada 1:1, mínimo 240×240 px)
+    - assets/casos/ale.jpg (cuadrada 1:1, mínimo 240×240 px)
+    - assets/casos/mauro.jpg (cuadrada 1:1, mínimo 240×240 px)
+    - assets/casos/guido.jpg (cuadrada 1:1, mínimo 240×240 px)
+    - assets/casos/ara-y-gabi.jpg (cuadrada 1:1, mínimo 240×240 px)
+    - assets/casos/sandra.jpg (cuadrada 1:1, mínimo 240×240 px)
+    Mientras no existan en el servidor, se muestran automáticamente los monogramas con iniciales.
+  -->
+
+  <!-- 0 · Banner fijo de cuenta regresiva -->
+  <header class="top-banner" id="top-banner">
+    <div class="top-banner-inner">
+      <div class="banner-timer-group" role="timer" id="banner-timer" aria-label="Tiempo restante para el cierre de entradas">
+        <span class="banner-prefix" id="banner-prefix">Cierra en</span>
+        <span class="banner-prefix-desktop" aria-hidden="true">Las entradas se cierran en</span>
+        <span class="banner-units" id="banner-units">
+          <span class="banner-chip"><strong data-timer-days>13</strong><abbr title="días">d</abbr></span>
+          <span class="banner-chip"><strong data-timer-hours>23</strong><abbr title="horas">h</abbr></span>
+          <span class="banner-chip"><strong data-timer-minutes>34</strong><abbr title="minutos">m</abbr></span>
+          <span class="banner-chip"><strong data-timer-seconds>10</strong><abbr title="segundos">s</abbr></span>
+        </span>
+      </div>
+      <a href="https://tiendup.com" class="banner-cta" data-cta="banner" data-cta-short="true">
+        <span class="banner-cta-desktop">Reservar mi lugar</span>
+        <span class="banner-cta-mobile">Reservar</span>
+        <span class="banner-cta-arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+    <div class="scroll-progress-bar" id="scroll-progress" aria-hidden="true"></div>
+  </header>
+
+  <main>
+    <!-- 1 · Hero (Prioridad total al título, subtítulo, datos clave en píldoras y CTA) -->
+    <section class="section-hero" id="hero">
+      <div class="container hero-single">
+        <div class="hero-copy">
+          <div class="hero-top-badges">
+            <p class="eyebrow eyebrow-pill">
+              <span class="live-dot" aria-hidden="true"></span>
+              <span>MASTERCLASS EN VIVO · POR ZOOM</span>
+            </p>
+            <span class="hero-date-pill">
+              <svg class="icon-lucide" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
+                <line x1="16" x2="16" y1="2" y2="6"/>
+                <line x1="8" x2="8" y1="2" y2="6"/>
+                <line x1="3" x2="21" y1="10" y2="10"/>
+              </svg>
+              <span>Jueves 5 NOV · 16:00 h (ARG)</span>
+            </span>
+          </div>
+
+          <h1 class="hero-title">Control Remoto: el sistema para que tu negocio <span class="highlight-word">funcione sin vos</span></h1>
+
+          <p class="hero-subtitle">Cómo <span class="kw-emphasis">delegar sin perder el control</span> y crecer hasta poder <span class="kw-emphasis">abrir más sucursales</span>.</p>
+
+          <!-- Píldoras de detalles de la clase integradas sin card pesada -->
+          <ul class="hero-meta-pills" aria-label="Detalles incluidos en la masterclass">
+            <li class="meta-pill">
+              <svg class="icon-lucide" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"/>
+                <rect x="2" y="6" width="14" height="12" rx="2"/>
+              </svg>
+              <span>Zoom en vivo · ~1 h 30 min</span>
+            </li>
+            <li class="meta-pill">
+              <svg class="icon-lucide" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/>
+                <polygon points="10 8 16 12 10 16 10 8"/>
+              </svg>
+              <span>Replay para los compradores</span>
+            </li>
+            <li class="meta-pill">
+              <svg class="icon-lucide" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>
+              </svg>
+              <span>Grupo de WhatsApp de la clase</span>
+            </li>
+          </ul>
+
+          <div class="hero-social-proof">
+            <span class="social-proof-number">+150</span>
+            <span class="social-proof-label">dueños de negocios ayudados a ordenar su operación y delegar</span>
+          </div>
+
+          <div class="hero-cta-block">
+            <a href="https://tiendup.com" class="btn-primary" data-cta="hero">
+              <span class="btn-text">Reservar mi lugar por $23.999</span>
+              <svg class="icon-lucide btn-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14"/>
+                <path d="m12 5 7 7-7 7"/>
+              </svg>
+            </a>
+            <div class="cta-sub-strip">
+              <span class="cta-price-tag"><strong>$23.999 ARS</strong> · Pago único en TiendUp</span>
+              <span class="cta-dot-sep" aria-hidden="true">·</span>
+              <span class="cta-close-tag" id="ticket-close-note">Se cierra el 4/11 a las 23:59</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2 · El problema (escena + para quién es) -->
+    <section class="section-problem section-alt" id="problema">
+      <div class="container">
+        <div class="problem-content reveal-item">
+          <p class="eyebrow eyebrow-pill">EL PUNTO DE PARTIDA</p>
+          <h2 class="section-title">Tu negocio funciona. <span class="highlight-word">Mientras estés vos.</span></h2>
+
+          <div class="problem-narrative">
+            <p><span class="kw-emphasis">Cerrás la caja vos. Hacés el pedido vos.</span> Cuando falta alguien, cubrís el puesto. Si te vas tres días, te llaman para preguntarte dónde está lo que ya te explicaron cien veces.</p>
+            <p>Probaste delegar. La tarea <span class="kw-emphasis">volvió a tus manos</span>: nadie sabía cómo se hacía bien, o nadie respondía por el resultado.</p>
+            <p>Querés abrir otra sucursal. Con el negocio como está hoy, serían <span class="kw-emphasis">dos negocios que te llaman a vos</span>.</p>
+          </div>
+
+          <div class="for-who-block reveal-item">
+            <h3 class="for-who-title">Esta clase es para vos si:</h3>
+            <ul class="for-who-list">
+              <li>
+                <span class="check-badge" aria-hidden="true">
+                  <svg class="icon-lucide icon-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 6 9 17l-5-5"/>
+                  </svg>
+                </span>
+                <span>Tenés un negocio físico con equipo: <span class="kw-emphasis">gastronomía, barbería, estética, comercio</span> o similar.</span>
+              </li>
+              <li>
+                <span class="check-badge" aria-hidden="true">
+                  <svg class="icon-lucide icon-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 6 9 17l-5-5"/>
+                  </svg>
+                </span>
+                <span>Sos el que resuelve <span class="kw-emphasis">cuando algo se rompe</span>.</span>
+              </li>
+              <li>
+                <span class="check-badge" aria-hidden="true">
+                  <svg class="icon-lucide icon-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 6 9 17l-5-5"/>
+                  </svg>
+                </span>
+                <span>Delegaste y <span class="kw-emphasis">terminaste haciéndolo otra vez</span>.</span>
+              </li>
+              <li>
+                <span class="check-badge" aria-hidden="true">
+                  <svg class="icon-lucide icon-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 6 9 17l-5-5"/>
+                  </svg>
+                </span>
+                <span>Querés crecer o <span class="kw-emphasis">abrir otra sucursal</span> y así como estás no lo podés sostener.</span>
+              </li>
+            </ul>
+          </div>
+
+          <p class="not-for-who">Si trabajás solo, vendés online o tenés un infoproducto, esta clase no es para vos.</p>
+
+          <div class="problem-cta-wrap">
+            <a href="https://tiendup.com" class="link-cta" data-cta="problema" data-cta-text-link="true">
+              <span>Reservar mi lugar por $23.999 →</span>
+            </a>
+            <span class="inline-event-reminder">Jueves 5 NOV · 16:00 h (ARG) · Zoom en vivo + Replay</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 · Casos de éxito (carrusel infinito con fade en bordes) -->
+    <section class="section-cases" id="casos">
+      <div class="container">
+        <div class="cases-header reveal-item">
+          <div class="cases-header-text">
+            <p class="eyebrow eyebrow-pill">DUEÑOS CON LOS QUE TRABAJÉ</p>
+            <h2 class="section-title">Negocios físicos que <span class="highlight-word">dejaron de depender</span> de su dueño</h2>
+            <p class="section-subtitle">Más de 150 dueños ayudados. Estos son 8.</p>
+          </div>
+          <div class="carousel-controls" aria-label="Controles del carrusel">
+            <button type="button" class="carousel-btn" id="carousel-prev" aria-label="Ver caso anterior">
+              <svg class="icon-lucide" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m15 18-6-6 6-6"/>
+              </svg>
+            </button>
+            <button type="button" class="carousel-btn" id="carousel-next" aria-label="Ver siguiente caso">
+              <svg class="icon-lucide" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m9 18 6-6-6-6"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel-viewport" id="carousel-viewport">
+        <div class="carousel-track" id="cases-track" tabindex="0" role="region" aria-label="Casos reales de dueños de negocios">
+          <!-- Caso 1: Iván -->
+          <article class="case-card" data-case-index="0">
+            <div class="case-card-top">
+              <div class="case-avatar is-fallback" data-avatar>
+                <img src="assets/casos/ivan.jpg" width="80" height="80" loading="lazy" alt="Iván, dueño de carnicería con varias sucursales" onload="if(this.naturalWidth>0)this.parentElement.classList.remove('is-fallback')" onerror="this.parentElement.classList.add('is-fallback')">
+                <span class="monogram" aria-hidden="true">IV</span>
+              </div>
+              <div class="case-person-info">
+                <h3 class="case-meta">Iván · Carnicería con varias sucursales</h3>
+              </div>
+            </div>
+            <p class="case-result">Dejó de responder consultas del equipo todo el día. Hoy tiene <span class="kw-emphasis">4 sucursales</span> y tiempo para pensar cómo crecer.</p>
+          </article>
+
+          <!-- Caso 2: Tommy -->
+          <article class="case-card" data-case-index="1">
+            <div class="case-card-top">
+              <div class="case-avatar is-fallback" data-avatar>
+                <img src="assets/casos/tommy.jpg" width="80" height="80" loading="lazy" alt="Tommy, dueño de centro de kinesiología" onload="if(this.naturalWidth>0)this.parentElement.classList.remove('is-fallback')" onerror="this.parentElement.classList.add('is-fallback')">
+                <span class="monogram" aria-hidden="true">TM</span>
+              </div>
+              <div class="case-person-info">
+                <h3 class="case-meta">Tommy · Centro de kinesiología</h3>
+              </div>
+            </div>
+            <p class="case-result">Pasó de 6-7 horas diarias a ir <span class="kw-emphasis">una vez por semana</span>, no más de 4 horas.</p>
+          </article>
+
+          <!-- Caso 3: Abner -->
+          <article class="case-card" data-case-index="2">
+            <div class="case-card-top">
+              <div class="case-avatar is-fallback" data-avatar>
+                <img src="assets/casos/abner.jpg" width="80" height="80" loading="lazy" alt="Abner, dueño de barbería y venta mayorista" onload="if(this.naturalWidth>0)this.parentElement.classList.remove('is-fallback')" onerror="this.parentElement.classList.add('is-fallback')">
+                <span class="monogram" aria-hidden="true">AB</span>
+              </div>
+              <div class="case-person-info">
+                <h3 class="case-meta">Abner · Barbería y venta mayorista</h3>
+              </div>
+            </div>
+            <p class="case-result">Pasó <span class="kw-emphasis">de 2 a 4 barberos</span> y va al negocio algunas veces por semana.</p>
+          </article>
+
+          <!-- Caso 4: Ale -->
+          <article class="case-card" data-case-index="3">
+            <div class="case-card-top">
+              <div class="case-avatar is-fallback" data-avatar>
+                <img src="assets/casos/ale.jpg" width="80" height="80" loading="lazy" alt="Ale, dueño de hamburguesería" onload="if(this.naturalWidth>0)this.parentElement.classList.remove('is-fallback')" onerror="this.parentElement.classList.add('is-fallback')">
+                <span class="monogram" aria-hidden="true">AL</span>
+              </div>
+              <div class="case-person-info">
+                <h3 class="case-meta">Ale · Hamburguesería</h3>
+              </div>
+            </div>
+            <p class="case-result">Armó procesos y sistemas desde cero. Hoy el negocio <span class="kw-emphasis">no depende de su presencia</span>.</p>
+          </article>
+
+          <!-- Caso 5: Mauro -->
+          <article class="case-card" data-case-index="4">
+            <div class="case-card-top">
+              <div class="case-avatar is-fallback" data-avatar>
+                <img src="assets/casos/mauro.jpg" width="80" height="80" loading="lazy" alt="Mauro, dueño de hamburguesería" onload="if(this.naturalWidth>0)this.parentElement.classList.remove('is-fallback')" onerror="this.parentElement.classList.add('is-fallback')">
+                <span class="monogram" aria-hidden="true">MA</span>
+              </div>
+              <div class="case-person-info">
+                <h3 class="case-meta">Mauro · Hamburguesería</h3>
+              </div>
+            </div>
+            <p class="case-result">Armó procesos y sistemas. Hoy el negocio <span class="kw-emphasis">funciona sin que él esté</span> todo el día.</p>
+          </article>
+
+          <!-- Caso 6: Guido -->
+          <article class="case-card" data-case-index="5">
+            <div class="case-card-top">
+              <div class="case-avatar is-fallback" data-avatar>
+                <img src="assets/casos/guido.jpg" width="80" height="80" loading="lazy" alt="Guido, dueño de bar en Uruguay" onload="if(this.naturalWidth>0)this.parentElement.classList.remove('is-fallback')" onerror="this.parentElement.classList.add('is-fallback')">
+                <span class="monogram" aria-hidden="true">GU</span>
+              </div>
+              <div class="case-person-info">
+                <h3 class="case-meta">Guido · Bar en Uruguay</h3>
+              </div>
+            </div>
+            <p class="case-result">Delegó toda la operación en 3-4 meses y <span class="kw-emphasis">se mudó de país</span> sin cerrar el bar.</p>
+          </article>
+
+          <!-- Caso 7: Ara y Gabi -->
+          <article class="case-card" data-case-index="6">
+            <div class="case-card-top">
+              <div class="case-avatar is-fallback" data-avatar>
+                <img src="assets/casos/ara-y-gabi.jpg" width="80" height="80" loading="lazy" alt="Ara y Gabi, dueñas de negocio de deco y home" onload="if(this.naturalWidth>0)this.parentElement.classList.remove('is-fallback')" onerror="this.parentElement.classList.add('is-fallback')">
+                <span class="monogram" aria-hidden="true">AG</span>
+              </div>
+              <div class="case-person-info">
+                <h3 class="case-meta">Ara y Gabi · Deco y home</h3>
+              </div>
+            </div>
+            <p class="case-result">De un negocio chico con poco equipo a un <span class="kw-emphasis">local de 500 m²</span> con equipo propio.</p>
+          </article>
+
+          <!-- Caso 8: Sandra -->
+          <article class="case-card" data-case-index="7">
+            <div class="case-card-top">
+              <div class="case-avatar is-fallback" data-avatar>
+                <img src="assets/casos/sandra.jpg" width="80" height="80" loading="lazy" alt="Sandra, dueña de empresa de eventos con sedes en 4 ciudades" onload="if(this.naturalWidth>0)this.parentElement.classList.remove('is-fallback')" onerror="this.parentElement.classList.add('is-fallback')">
+                <span class="monogram" aria-hidden="true">SA</span>
+              </div>
+              <div class="case-person-info">
+                <h3 class="case-meta">Sandra · Eventos, sedes en 4 ciudades</h3>
+              </div>
+            </div>
+            <p class="case-result">Dejó de meterse en el paso a paso de cada área. Hoy <span class="kw-emphasis">el equipo resuelve</span> y ella mira resultados.</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="carousel-dots" id="carousel-dots" role="group" aria-label="Indicador de tarjetas del carrusel">
+          <button type="button" class="carousel-dot is-active" data-slide="0" aria-label="Ir al caso 1: Iván" aria-current="true"><span></span></button>
+          <button type="button" class="carousel-dot" data-slide="1" aria-label="Ir al caso 2: Tommy"><span></span></button>
+          <button type="button" class="carousel-dot" data-slide="2" aria-label="Ir al caso 3: Abner"><span></span></button>
+          <button type="button" class="carousel-dot" data-slide="3" aria-label="Ir al caso 4: Ale"><span></span></button>
+          <button type="button" class="carousel-dot" data-slide="4" aria-label="Ir al caso 5: Mauro"><span></span></button>
+          <button type="button" class="carousel-dot" data-slide="5" aria-label="Ir al caso 6: Guido"><span></span></button>
+          <button type="button" class="carousel-dot" data-slide="6" aria-label="Ir al caso 7: Ara y Gabi"><span></span></button>
+          <button type="button" class="carousel-dot" data-slide="7" aria-label="Ir al caso 8: Sandra"><span></span></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 · Qué vas a ver y qué te llevás -->
+    <section class="section-curriculum section-alt" id="contenido">
+      <div class="container">
+        <div class="curriculum-header reveal-item">
+          <p class="eyebrow eyebrow-pill">LO QUE VAS A VER</p>
+          <h2 class="section-title">El sistema Control Remoto, <span class="highlight-word">paso a paso</span> (en 1 h 30 min)</h2>
+        </div>
+
+        <ol class="steps-list">
+          <li class="step-row reveal-item">
+            <span class="step-badge" aria-hidden="true">01</span>
+            <div class="step-body">
+              <h3 class="step-title"><strong>Áreas.</strong> Ordená tu negocio por partes.</h3>
+              <p class="step-takeaway">Qué áreas tiene tu negocio y <span class="kw-emphasis">quién responde por cada una</span>.</p>
+            </div>
+          </li>
+          <li class="step-row reveal-item">
+            <span class="step-badge" aria-hidden="true">02</span>
+            <div class="step-body">
+              <h3 class="step-title"><strong>Sistemas.</strong> Definí qué tiene que funcionar sin vos.</h3>
+              <p class="step-takeaway">Los sistemas que sostienen cada área, con el <span class="kw-emphasis">resultado que tienen que asegurar</span>.</p>
+            </div>
+          </li>
+          <li class="step-row reveal-item">
+            <span class="step-badge" aria-hidden="true">03</span>
+            <div class="step-body">
+              <h3 class="step-title"><strong>Procesos.</strong> Dejá escrito cómo se hace.</h3>
+              <p class="step-takeaway">El paso a paso para que <span class="kw-emphasis">cualquiera de tu equipo lo ejecute igual</span>, siempre.</p>
+            </div>
+          </li>
+          <li class="step-row reveal-item">
+            <span class="step-badge" aria-hidden="true">04</span>
+            <div class="step-body">
+              <h3 class="step-title"><strong>Roles.</strong> Decidí quién lo hace.</h3>
+              <p class="step-takeaway">Quién queda a cargo de qué, para que <span class="kw-emphasis">dejes de ser el control de todo</span>.</p>
+            </div>
+          </li>
+        </ol>
+
+        <p class="steps-closing">Al final te cuento cómo aplicarlo por tu cuenta o con acompañamiento. Vos elegís.</p>
+
+        <!-- Bonus mejorados visualmente -->
+        <div class="bonus-section">
+          <div class="bonus-header-block reveal-item">
+            <p class="eyebrow eyebrow-pill">3 HERRAMIENTAS INCLUIDAS CON TU ENTRADA</p>
+            <h3 class="bonus-heading">Entrando, <span class="highlight-word">te llevás además</span>:</h3>
+          </div>
+
+          <div class="bonus-layout">
+            <div class="bonus-top-row">
+              <article class="bonus-item bonus-weight-1 reveal-item">
+                <div class="bonus-card-head">
+                  <span class="bonus-icon-3d" aria-hidden="true">
+                    <svg class="icon-lucide" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect width="8" height="4" x="8" y="2" rx="1" ry="1"/>
+                      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+                      <path d="m9 14 2 2 4-4"/>
+                    </svg>
+                  </span>
+                  <p class="eyebrow bonus-tag">BONUS 1</p>
+                </div>
+                <h4 class="bonus-title">Bonus 1 · Test "¿Funciona tu negocio sin vos?"</h4>
+                <p class="bonus-desc">Un test corto para saber cuánto depende tu negocio de vos hoy y <span class="kw-emphasis">por dónde empezar</span>.</p>
+              </article>
+
+              <article class="bonus-item bonus-weight-2 reveal-item">
+                <div class="bonus-card-head">
+                  <span class="bonus-icon-3d" aria-hidden="true">
+                    <svg class="icon-lucide" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect width="7" height="7" x="3" y="3" rx="1"/>
+                      <rect width="7" height="7" x="14" y="3" rx="1"/>
+                      <rect width="7" height="7" x="14" y="14" rx="1"/>
+                      <rect width="7" height="7" x="3" y="14" rx="1"/>
+                    </svg>
+                  </span>
+                  <p class="eyebrow bonus-tag">BONUS 2</p>
+                </div>
+                <h4 class="bonus-title">Bonus 2 · Mapa de tu negocio.</h4>
+                <p class="bonus-desc">La plantilla para dibujar las áreas de tu negocio y <span class="kw-emphasis">quién responde por cada una</span>.</p>
+              </article>
+            </div>
+
+            <article class="bonus-item bonus-weight-3 reveal-item">
+              <div class="bonus-3-copy">
+                <div class="bonus-card-head">
+                  <span class="bonus-icon-3d bonus-icon-featured" aria-hidden="true">
+                    <svg class="icon-lucide" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 3l-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/>
+                    </svg>
+                  </span>
+                  <p class="eyebrow bonus-tag bonus-tag-featured">BONUS 3 · HERRAMIENTA IA</p>
+                </div>
+                <h4 class="bonus-title">Bonus 3 · "Qué delego primero".</h4>
+                <p class="bonus-desc">Una herramienta de IA (para Claude y ChatGPT). Le contás qué hacés en una semana normal y te devuelve <span class="kw-emphasis-dark">las primeras tareas para soltar</span>, a quién pasarlas y cómo enterarte de que se hicieron bien sin estar presente. Sale en una imagen para guardar o imprimir.</p>
+              </div>
+              <figure class="bonus-preview-frame">
+                <picture>
+                  <source srcset="assets/ejemplo-plan.webp" type="image/webp">
+                  <img src="assets/ejemplo-plan.png" width="1240" height="800" loading="lazy" alt="Ejemplo de plan generado por la herramienta Qué delego primero para Hamburguesería Central">
+                </picture>
+              </figure>
+            </article>
+          </div>
+
+          <!-- Resumen de clase + precio integrado antes del CTA -->
+          <div class="event-summary-strip reveal-item">
+            <ul class="included-extras">
+              <li class="extra-row">
+                <span class="ticket-icon-box" aria-hidden="true">
+                  <svg class="icon-lucide" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
+                    <line x1="16" x2="16" y1="2" y2="6"/>
+                    <line x1="8" x2="8" y1="2" y2="6"/>
+                    <line x1="3" x2="21" y1="10" y2="10"/>
+                  </svg>
+                </span>
+                <span>Jueves 5 NOV · 16:00 h (Argentina)</span>
+              </li>
+              <li class="extra-row">
+                <span class="ticket-icon-box" aria-hidden="true">
+                  <svg class="icon-lucide" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polygon points="10 8 16 12 10 16 10 8"/>
+                  </svg>
+                </span>
+                <span>Replay de la clase para los compradores</span>
+              </li>
+              <li class="extra-row">
+                <span class="ticket-icon-box" aria-hidden="true">
+                  <svg class="icon-lucide" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>
+                  </svg>
+                </span>
+                <span>Grupo de WhatsApp de la clase</span>
+              </li>
+            </ul>
+
+            <div class="bonus-cta-wrap">
+              <a href="https://tiendup.com" class="btn-primary" data-cta="bonus">
+                <span class="btn-text">Reservar mi lugar por $23.999</span>
+                <svg class="icon-lucide btn-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14"/>
+                  <path d="m12 5 7 7-7 7"/>
+                </svg>
+              </a>
+              <p class="bonus-cta-sub"><strong>$23.999 ARS</strong> · Pago único en TiendUp · Recibís los 3 bonus con tu entrada</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 · Quién soy -->
+    <section class="section-bio" id="quien-soy">
+      <div class="container">
+        <p class="eyebrow eyebrow-pill">QUIÉN DA LA CLASE</p>
+        <div class="bio-grid reveal-item">
+          <div class="bio-photo-col">
+            <div class="bio-photo-frame is-fallback" data-avatar>
+              <img src="assets/nico.jpg" width="320" height="400" loading="lazy" alt="Nico Genesir, fundador de Solvian y anfitrión de la masterclass" onload="if(this.naturalWidth>0)this.parentElement.classList.remove('is-fallback')" onerror="this.parentElement.classList.add('is-fallback')">
+              <span class="monogram monogram-large" aria-hidden="true">NG</span>
+            </div>
+          </div>
+
+          <div class="bio-copy-col">
+            <h2 class="section-title">Soy <span class="highlight-word">Nico Genesir</span></h2>
+            <div class="bio-text">
+              <p>Llegué a tener <span class="kw-emphasis">5 locales propios al mismo tiempo</span>, entre barberías y salones de manicura, y a gestionar a <span class="kw-emphasis">más de 100 empleados</span> entre todos mis negocios.</p>
+              <p>Aprendí a delegar a los golpes: perdí plata por no saber contratar, liderar ni manejar números, y por estar yo en todo.</p>
+              <p>Hoy, con Solvian, ayudo a dueños de negocios físicos a ordenar su operación y a que funcione sin ellos. <span class="kw-emphasis">Ya son más de 150.</span></p>
+            </div>
+
+            <dl class="bio-stats" aria-label="Trayectoria en cifras">
+              <div class="bio-stat-item">
+                <dt class="bio-stat-label">locales</dt>
+                <dd class="bio-stat-number">5</dd>
+              </div>
+              <div class="bio-stat-item">
+                <dt class="bio-stat-label">empleados</dt>
+                <dd class="bio-stat-number">+100</dd>
+              </div>
+              <div class="bio-stat-item">
+                <dt class="bio-stat-label">dueños ayudados</dt>
+                <dd class="bio-stat-number">+150</dd>
+              </div>
+            </dl>
+
+            <div class="bio-social">
+              <a href="https://instagram.com/nicogenesir" target="_blank" rel="noopener" class="instagram-link">
+                <svg class="icon-lucide" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+                </svg>
+                <span>@nicogenesir</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6 · Preguntas frecuentes -->
+    <section class="section-faq section-alt" id="preguntas-frecuentes">
+      <div class="container">
+        <div class="faq-wrap reveal-item">
+          <p class="eyebrow eyebrow-pill">DUDAS COMUNES</p>
+          <h2 class="section-title">Preguntas frecuentes</h2>
+
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary class="faq-question">
+                <span>¿La clase queda grabada?</span>
+                <svg class="icon-lucide faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="m6 9 6 6 6-6"/>
+                </svg>
+              </summary>
+              <div class="faq-answer">
+                <p>Sí. En esta edición, quienes compran reciben el replay por mail.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                <span>¿Cómo recibo el link de Zoom?</span>
+                <svg class="icon-lucide faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="m6 9 6 6 6-6"/>
+                </svg>
+              </summary>
+              <div class="faq-answer">
+                <p>Por mail apenas confirmás la compra. También lo compartimos en el grupo de WhatsApp de la clase.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                <span>¿Sirve si mi negocio es chico?</span>
+                <svg class="icon-lucide faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="m6 9 6 6 6-6"/>
+                </svg>
+              </summary>
+              <div class="faq-answer">
+                <p>Sí, si ya tenés equipo. Si trabajás solo, esta clase no es para vos.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                <span>¿Me garantiza resultados?</span>
+                <svg class="icon-lucide faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="m6 9 6 6 6-6"/>
+                </svg>
+              </summary>
+              <div class="faq-answer">
+                <p>No. Te muestro un sistema ordenado. Lo que logres depende de lo que apliques en tu negocio.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7 · Cierre con cuenta regresiva -->
+    <section class="section-closing" id="cierre">
+      <div class="container closing-inner reveal-item">
+        <p class="closing-event-pill">JUEVES 5 DE NOVIEMBRE · 16:00 H (ARG) · POR ZOOM</p>
+        <h2 class="closing-title" id="closing-title">Las entradas se cierran el miércoles 4 de noviembre a las 23:59</h2>
+
+        <div class="closing-countdown" role="timer" id="closing-timer" aria-label="Tiempo restante para el cierre de entradas">
+          <div class="countdown-box">
+            <span class="countdown-number" data-timer-days>13</span>
+            <span class="countdown-label">DÍAS</span>
+          </div>
+          <div class="countdown-box">
+            <span class="countdown-number" data-timer-hours>23</span>
+            <span class="countdown-label">HORAS</span>
+          </div>
+          <div class="countdown-box">
+            <span class="countdown-number" data-timer-minutes>34</span>
+            <span class="countdown-label">MINUTOS</span>
+          </div>
+          <div class="countdown-box">
+            <span class="countdown-number" data-timer-seconds>10</span>
+            <span class="countdown-label">SEGUNDOS</span>
+          </div>
+        </div>
+
+        <p class="closing-contrast">O seguís otro año adivinando por dónde empezar, o el jueves 5 tenés el sistema para ordenar tu negocio y empezar a soltarlo.</p>
+
+        <div class="closing-cta-wrap">
+          <a href="https://tiendup.com" class="btn-primary btn-closing" data-cta="cierre">
+            <span class="btn-text">Reservar mi lugar por $23.999</span>
+            <svg class="icon-lucide btn-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14"/>
+              <path d="m12 5 7 7-7 7"/>
+            </svg>
+          </a>
+          <p class="closing-price-meta">Pago único de $23.999 ARS en TiendUp · Incluye Replay, 3 Bonus y Grupo de WhatsApp</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 8 · Pie -->
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-line">© 2026 Solvian · Nico Genesir</p>
+    </div>
+  </footer>
+
+  <!-- Barra fija de compra en mobile -->
+  <div class="mobile-sticky-bar" id="mobile-sticky-bar" aria-hidden="true" inert>
+    <div class="mobile-sticky-inner">
+      <div class="mobile-sticky-price-group">
+        <span class="mobile-sticky-price">$23.999 <small>ARS</small></span>
+        <span class="mobile-sticky-currency">Jueves 5 NOV · 16:00 h</span>
+      </div>
+      <a href="https://tiendup.com" class="btn-primary btn-mobile-bar" data-cta="barra-mobile" data-cta-short="true" tabindex="-1">
+        <span class="btn-text">Reservar mi lugar</span>
+        <svg class="icon-lucide btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 12h14"/>
+          <path d="m12 5 7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
