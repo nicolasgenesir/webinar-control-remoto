@@ -25,6 +25,7 @@ function checkFileNonEmpty(filename) {
 }
 
 const html = checkFileNonEmpty('index.html');
+const termsHtml = checkFileNonEmpty('terminos.html');
 const css = checkFileNonEmpty('styles.css');
 const js = checkFileNonEmpty('script.js');
 
@@ -33,12 +34,12 @@ if (html) {
   const htmlNoComments = html.replace(/<!--[\s\S]*?-->/g, '');
 
   // 1. Stylesheet and script links
-  if (!/<link\s+[^>]*rel=["']stylesheet["'][^>]*href=["']styles\.css["'][^>]*>/i.test(htmlNoComments) &&
-      !/<link\s+[^>]*href=["']styles\.css["'][^>]*rel=["']stylesheet["'][^>]*>/i.test(htmlNoComments)) {
+  if (!/<link\s+[^>]*rel=["']stylesheet["'][^>]*href=["']styles\.css(\?[^"']*)?["'][^>]*>/i.test(htmlNoComments) &&
+      !/<link\s+[^>]*href=["']styles\.css(\?[^"']*)?["'][^>]*rel=["']stylesheet["'][^>]*>/i.test(htmlNoComments)) {
     errors.push('Falta <link rel="stylesheet" href="styles.css"> en index.html');
   }
 
-  if (!/<script\s+[^>]*src=["']script\.js["'][^>]*>\s*<\/script>/i.test(htmlNoComments)) {
+  if (!/<script\s+[^>]*src=["']script\.js(\?[^"']*)?["'][^>]*>\s*<\/script>/i.test(htmlNoComments)) {
     errors.push('Falta <script src="script.js"></script> en index.html');
   }
 
