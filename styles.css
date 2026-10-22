@@ -1351,7 +1351,10 @@ summary:focus-visible,
 }
 
 .case-avatar.is-fallback img {
-  display: none;
+  opacity: 0;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
 }
 
 .case-avatar.is-fallback .monogram {
@@ -2038,21 +2041,25 @@ summary:focus-visible,
 }
 
 .bio-photo-frame {
-  width: 120px;
-  aspect-ratio: 1 / 1;
-  border-radius: 50%;
+  width: 184px;
+  aspect-ratio: 4 / 5;
+  border-radius: 20px;
   overflow: hidden;
-  background: linear-gradient(145deg, var(--action-soft) 0%, #FFC89E 100%);
+  background: linear-gradient(145deg, var(--ink) 0%, #2C2139 100%);
   border: 3px solid var(--action);
-  box-shadow: var(--shadow-card-rich);
+  box-shadow:
+    0 16px 34px -8px rgba(15, 10, 22, 0.34),
+    0 4px 12px rgba(242, 107, 29, 0.25);
   position: relative;
-  margin-bottom: 10px;
+  margin-bottom: 14px;
 }
 
 .bio-photo-frame img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
+  display: block;
 }
 
 .bio-photo-frame .monogram-large {
@@ -2070,11 +2077,22 @@ summary:focus-visible,
 }
 
 .bio-photo-frame.is-fallback img {
-  display: none;
+  opacity: 0;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
 }
 
 .bio-photo-frame.is-fallback .monogram-large {
   display: flex;
+}
+
+@media (max-width: 767px) {
+  .bio-photo-frame {
+    width: 156px;
+    border-radius: 18px;
+    margin-bottom: 12px;
+  }
 }
 
 /* Perfectly Aligned 3-Column Bio Stats */
