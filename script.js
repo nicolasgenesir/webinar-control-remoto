@@ -1,5 +1,5 @@
 const CONFIG = {
-  CHECKOUT_URL: "https://tiendup.com", // PEGAR el link definitivo de TiendUp acá
+  CHECKOUT_URL: "https://nicolasgenesir.tiendup.com/e/control-remoto-ordena-delegar-y-tener-un-negocio-replicable",
   CLOSE_AT: "2026-11-04T23:59:00-03:00",
   CTA_VALUE: 23999,
   CURRENCY: "ARS",

@@ -90,14 +90,33 @@ if (html) {
 }
 
 if (js) {
-  // Check CONFIG.CHECKOUT_URL is not empty
+  // Check CONFIG.CHECKOUT_URL is not empty and not placeholder
   const checkoutMatch = js.match(/CHECKOUT_URL\s*:\s*["']([^"']*)["']/);
-  if (!checkoutMatch || !checkoutMatch[1].trim()) {
+  if (!checkoutMatch || !checkoutMatch[1].trim() || checkoutMatch[1].trim() === 'https://tiendup.com') {
     errors.push(
-      'CONFIG.CHECKOUT_URL está vacío en script.js. Pegá el link de TiendUp antes de desplegar.'
+      'CONFIG.CHECKOUT_URL no tiene el link definitivo de TiendUp en script.js.'
     );
   }
 }
+
+// 7. Verificar existencia de las 9 fotos reales (Nico + 8 casos)
+const requiredPhotos = [
+  'assets/nico.jpg',
+  'assets/casos/ivan.jpg',
+  'assets/casos/tommy.jpg',
+  'assets/casos/abner.jpg',
+  'assets/casos/ale.jpg',
+  'assets/casos/mauro.jpg',
+  'assets/casos/guido.jpg',
+  'assets/casos/ara-y-gabi.jpg',
+  'assets/casos/sandra.jpg',
+];
+requiredPhotos.forEach((photoRelPath) => {
+  const fullPhotoPath = path.join(ROOT, photoRelPath);
+  if (!fs.existsSync(fullPhotoPath) || fs.statSync(fullPhotoPath).size < 1024) {
+    errors.push(`Falta o es inválida la foto requerida: ${photoRelPath}`);
+  }
+});
 
 if (errors.length > 0) {
   console.error('\n❌ VERIFICACIÓN PRE-DEPLOY FALLIDA:\n');
