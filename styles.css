@@ -1316,9 +1316,9 @@ summary:focus-visible,
 
 /* Prominent Photo / Monogram avatar */
 .case-avatar {
-  width: 68px;
-  height: 68px;
-  border-radius: 14px;
+  width: 80px;
+  height: 80px;
+  border-radius: 16px;
   overflow: hidden;
   position: relative;
   background: var(--grad-action);
@@ -1333,7 +1333,7 @@ summary:focus-visible,
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 12px;
+  border-radius: 14px;
 }
 
 .case-avatar .monogram {
@@ -1405,9 +1405,9 @@ summary:focus-visible,
   }
 
   .case-avatar {
-    width: 60px;
-    height: 60px;
-    border-radius: 12px;
+    width: 72px;
+    height: 72px;
+    border-radius: 14px;
   }
 
   .case-avatar .monogram {
