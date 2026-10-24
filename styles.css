@@ -2704,25 +2704,36 @@ summary:focus-visible,
 }
 
 /* ==========================================================================
-   TARJETA DE OFERTA COMPLETA / PILA DE VALOR (#oferta)
+   TARJETA DE OFERTA COMPLETA / BOLETO OFICIAL DE ACCESO (#oferta)
    ========================================================================== */
 .offer-stack-box {
-  scroll-margin-top: 24px;
+  scroll-margin-top: 20px;
   width: 100%;
-  max-width: 620px;
+  max-width: 630px;
   margin-inline: auto;
   margin-top: 18px;
   background: #FFFFFF;
   border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  border-top: 5px solid #1D1526;
+  border: 1px solid rgba(255, 255, 255, 0.95);
   box-shadow:
-    0 24px 48px -12px rgba(15, 10, 22, 0.38),
-    0 8px 20px -4px rgba(15, 10, 22, 0.22);
+    0 1px 3px rgba(15, 10, 22, 0.04),
+    0 12px 28px -6px rgba(15, 10, 22, 0.16),
+    0 32px 64px -14px rgba(15, 10, 22, 0.35);
   padding: 22px 24px;
   color: var(--ink);
   text-align: left;
   position: relative;
+  overflow: visible;
+}
+
+.offer-top-accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #F26B1D 0%, #FF9045 50%, #F26B1D 100%);
+  border-radius: 20px 20px 0 0;
 }
 
 .offer-badge-strip {
@@ -2731,20 +2742,21 @@ summary:focus-visible,
   justify-content: space-between;
   gap: 8px;
   margin-bottom: 12px;
+  margin-top: 2px;
 }
 
 .offer-badge-pill {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 4px 10px;
+  padding: 4px 11px;
   border-radius: 999px;
-  background: rgba(242, 107, 29, 0.10);
-  border: 1px solid rgba(242, 107, 29, 0.25);
+  background: rgba(242, 107, 29, 0.09);
+  border: 1px solid rgba(242, 107, 29, 0.22);
   font-family: var(--font-display);
   font-size: 0.6875rem;
   font-weight: 800;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   color: var(--action-text);
   text-transform: uppercase;
 }
@@ -2760,16 +2772,16 @@ summary:focus-visible,
 
 .offer-discount-chip {
   display: inline-block;
-  padding: 4px 9px;
+  padding: 4px 10px;
   border-radius: 6px;
   background: #DC2626;
   color: #FFFFFF;
   font-family: var(--font-display);
   font-size: 0.6875rem;
   font-weight: 800;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  box-shadow: 0 2px 6px rgba(220, 38, 38, 0.25);
+  box-shadow: 0 2px 6px rgba(220, 38, 38, 0.28);
 }
 
 .offer-headline {
@@ -2777,8 +2789,8 @@ summary:focus-visible,
   font-size: 1.125rem;
   font-weight: 800;
   color: var(--ink);
-  letter-spacing: -0.01em;
-  margin-bottom: 14px;
+  letter-spacing: -0.015em;
+  margin-bottom: 12px;
 }
 
 .offer-stack-list {
@@ -2787,29 +2799,38 @@ summary:focus-visible,
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 7px;
+  gap: 6px;
 }
 
 .offer-stack-item {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 7px 10px;
-  background: #FAF8F5;
-  border: 1px solid rgba(29, 21, 38, 0.06);
-  border-radius: 10px;
+  padding: 7px 11px;
+  background: linear-gradient(180deg, #FFFFFF 0%, #FAF8F5 100%);
+  border: 1px solid rgba(29, 21, 38, 0.07);
+  border-radius: 9px;
+  transition: transform 120ms ease-out, border-color 120ms ease-out;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .offer-stack-item:hover {
+    border-color: rgba(242, 107, 29, 0.3);
+    background: #FFFFFF;
+  }
 }
 
 .offer-check {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: rgba(22, 163, 74, 0.14);
+  background: #DCFCE7;
   color: #15803D;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  box-shadow: inset 0 1px 1px rgba(21, 128, 61, 0.15);
 }
 
 .offer-item-content {
@@ -2830,7 +2851,7 @@ summary:focus-visible,
   display: block;
   font-family: var(--font-body);
   font-size: 0.71875rem;
-  color: var(--text-secondary);
+  color: #6B7280;
   line-height: 1.25;
   margin-top: 1px;
 }
@@ -2838,40 +2859,80 @@ summary:focus-visible,
 .offer-item-val {
   font-family: var(--font-display);
   font-size: 0.78125rem;
-  font-weight: 800;
-  color: var(--text-muted);
+  font-weight: 700;
+  color: #6B7280;
+  font-variant-numeric: tabular-nums;
   flex-shrink: 0;
   text-align: right;
 }
 
-.offer-val-free {
-  color: #15803D;
-  background: rgba(22, 163, 74, 0.10);
+.offer-val-tag {
+  background: #ECFDF5;
+  color: #047857;
+  border: 1px solid rgba(4, 120, 87, 0.2);
   padding: 2px 7px;
   border-radius: 4px;
   font-size: 0.6875rem;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 0.02em;
+}
+
+/* Divisor de Ticket con muescas físicas en los laterales */
+.offer-ticket-divider {
+  position: relative;
+  margin-inline: -24px;
+  margin-block: 13px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+.offer-ticket-divider::before,
+.offer-ticket-divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: var(--action);
+  background-image: linear-gradient(135deg, #FF8538 0%, #F26B1D 52%, #D44B04 100%);
+  z-index: 2;
+}
+
+.offer-ticket-divider::before {
+  left: -9px;
+  box-shadow: inset -2px 0 4px rgba(15, 10, 22, 0.22);
+}
+
+.offer-ticket-divider::after {
+  right: -9px;
+  box-shadow: inset 2px 0 4px rgba(15, 10, 22, 0.22);
+}
+
+.offer-ticket-line {
+  width: 100%;
+  border-top: 1.5px dashed rgba(29, 21, 38, 0.16);
 }
 
 /* Pricing Block */
 .offer-pricing-block {
-  margin-top: 14px;
-  padding-top: 12px;
-  border-top: 1.5px dashed rgba(29, 21, 38, 0.14);
+  padding-top: 2px;
 }
 
 .offer-total-val-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 8px;
+  margin-bottom: 7px;
   padding-inline: 4px;
 }
 
 .offer-total-label {
   font-family: var(--font-display);
-  font-size: 0.6875rem;
+  font-size: 0.65625rem;
   font-weight: 800;
   letter-spacing: 0.05em;
   color: var(--text-secondary);
@@ -2880,7 +2941,7 @@ summary:focus-visible,
 
 .offer-total-number {
   font-family: var(--font-display);
-  font-size: 0.84375rem;
+  font-size: 0.8125rem;
   font-weight: 800;
   color: #92400E;
   text-decoration: line-through;
@@ -2891,11 +2952,12 @@ summary:focus-visible,
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  background: linear-gradient(135deg, #FFF8F2 0%, #FFEDDE 100%);
+  background: linear-gradient(135deg, #FFF9F5 0%, #FFEDDE 100%);
   border: 1.5px solid rgba(242, 107, 29, 0.35);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 2px 8px rgba(242, 107, 29, 0.08);
   border-radius: 12px;
   padding: 8px 14px;
-  margin-bottom: 8px;
+  margin-bottom: 7px;
 }
 
 .offer-original-group {
@@ -2905,7 +2967,7 @@ summary:focus-visible,
 
 .offer-orig-label {
   font-family: var(--font-display);
-  font-size: 0.625rem;
+  font-size: 0.59375rem;
   font-weight: 700;
   letter-spacing: 0.05em;
   color: var(--text-muted);
@@ -2914,7 +2976,7 @@ summary:focus-visible,
 
 .offer-orig-strike {
   font-family: var(--font-display);
-  font-size: 0.875rem;
+  font-size: 0.84375rem;
   font-weight: 700;
   color: var(--text-muted);
 }
@@ -2925,7 +2987,7 @@ summary:focus-visible,
 }
 
 .offer-orig-strike small {
-  font-size: 0.75rem;
+  font-size: 0.71875rem;
   color: #9CA3AF;
 }
 
@@ -2937,7 +2999,7 @@ summary:focus-visible,
 
 .offer-curr-label {
   font-family: var(--font-display);
-  font-size: 0.625rem;
+  font-size: 0.59375rem;
   font-weight: 800;
   letter-spacing: 0.05em;
   color: #C24300;
@@ -2952,7 +3014,7 @@ summary:focus-visible,
 
 .offer-price-currency {
   font-family: var(--font-display);
-  font-size: 1.125rem;
+  font-size: 1.0625rem;
   font-weight: 800;
   color: var(--action-text);
 }
@@ -2963,21 +3025,21 @@ summary:focus-visible,
   font-weight: 900;
   color: var(--ink);
   line-height: 1;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
 }
 
 .offer-price-suffix {
   font-family: var(--font-display);
-  font-size: 0.8125rem;
+  font-size: 0.78125rem;
   font-weight: 800;
   color: var(--text-secondary);
 }
 
 .offer-usd-note {
   text-align: center;
-  font-size: 0.75rem;
+  font-size: 0.71875rem;
   color: var(--text-secondary);
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .offer-usd-note strong {
@@ -2988,32 +3050,37 @@ summary:focus-visible,
 .offer-actions-group {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 7px;
   width: 100%;
 }
 
 .btn-offer-ars {
   width: 100%;
-  min-height: 50px;
-  font-size: 1rem;
+  min-height: 48px;
+  font-size: 0.96875rem;
   font-weight: 800;
   justify-content: center;
-  box-shadow: 0 8px 20px -3px rgba(242, 107, 29, 0.45);
+  background: linear-gradient(135deg, #FF8433 0%, #F26B1D 50%, #D85202 100%);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    0 8px 20px -3px rgba(242, 107, 29, 0.45);
+  border-radius: 11px;
 }
 
 .btn-secondary-usd {
   width: 100%;
-  min-height: 40px;
-  padding: 8px 14px;
+  min-height: 38px;
+  padding: 7px 12px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   background: #FFFFFF;
   border: 1.5px solid rgba(29, 21, 38, 0.18);
-  border-radius: 10px;
+  border-radius: 9px;
   font-family: var(--font-display);
-  font-size: 0.8125rem;
+  font-size: 0.78125rem;
   font-weight: 700;
   color: var(--ink);
   text-decoration: none;
@@ -3040,12 +3107,12 @@ summary:focus-visible,
 }
 
 .offer-trust-badges {
-  margin-top: 10px;
+  margin-top: 8px;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 8px;
-  font-size: 0.6875rem;
+  font-size: 0.65625rem;
   color: var(--text-secondary);
   font-weight: 600;
 }
@@ -3064,6 +3131,10 @@ summary:focus-visible,
   opacity: 0.4;
 }
 
+/* ==========================================================================
+   MOBILE VIEWPORT OPTIMIZATIONS (< 768px)
+   Garantiza que la oferta entre 100% en una sola pantalla mobile
+   ========================================================================== */
 @media (max-width: 767px) {
   .section-closing {
     padding-block: 16px 26px;
@@ -3114,8 +3185,12 @@ summary:focus-visible,
     margin-top: 8px;
   }
 
+  .offer-top-accent {
+    border-radius: 14px 14px 0 0;
+  }
+
   .offer-badge-strip {
-    margin-bottom: 5px;
+    margin-bottom: 4px;
   }
 
   .offer-badge-pill {
@@ -3130,7 +3205,7 @@ summary:focus-visible,
 
   .offer-headline {
     font-size: 0.875rem;
-    margin-bottom: 5px;
+    margin-bottom: 4px;
   }
 
   .offer-stack-list {
@@ -3138,18 +3213,19 @@ summary:focus-visible,
   }
 
   .offer-stack-item {
-    padding: 3.5px 7px;
-    gap: 7px;
+    padding: 3px 6px;
+    gap: 6px;
+    border-radius: 7px;
   }
 
   .offer-check {
-    width: 15px;
-    height: 15px;
+    width: 14px;
+    height: 14px;
   }
 
   .offer-check svg {
-    width: 10px;
-    height: 10px;
+    width: 9px;
+    height: 9px;
   }
 
   .offer-item-title {
@@ -3166,32 +3242,52 @@ summary:focus-visible,
     font-size: 0.6875rem;
   }
 
-  .offer-val-free {
+  .offer-val-tag {
     padding: 1px 4px;
     font-size: 0.59375rem;
   }
 
+  .offer-ticket-divider {
+    margin-inline: -10px;
+    margin-block: 6px 5px;
+  }
+
+  .offer-ticket-divider::before,
+  .offer-ticket-divider::after {
+    width: 12px;
+    height: 12px;
+  }
+
+  .offer-ticket-divider::before {
+    left: -6px;
+  }
+
+  .offer-ticket-divider::after {
+    right: -6px;
+  }
+
   .offer-pricing-block {
-    margin-top: 6px;
-    padding-top: 6px;
+    margin-top: 0;
+    padding-top: 0;
   }
 
   .offer-total-val-row {
-    margin-bottom: 4px;
+    margin-bottom: 3px;
   }
 
   .offer-total-label {
-    font-size: 0.59375rem;
+    font-size: 0.5625rem;
   }
 
   .offer-total-number {
-    font-size: 0.71875rem;
+    font-size: 0.6875rem;
   }
 
   .offer-prices-row {
-    padding: 5px 9px;
-    gap: 8px;
-    margin-bottom: 4px;
+    padding: 5px 8px;
+    gap: 6px;
+    margin-bottom: 3px;
+    border-radius: 9px;
   }
 
   .offer-orig-label {
@@ -3199,11 +3295,11 @@ summary:focus-visible,
   }
 
   .offer-orig-strike {
-    font-size: 0.75rem;
+    font-size: 0.71875rem;
   }
 
   .offer-orig-strike small {
-    font-size: 0.65625rem;
+    font-size: 0.625rem;
   }
 
   .offer-curr-label {
@@ -3224,24 +3320,24 @@ summary:focus-visible,
 
   .offer-usd-note {
     font-size: 0.65625rem;
-    margin-bottom: 5px;
+    margin-bottom: 4px;
   }
 
   .offer-actions-group {
-    gap: 5px;
+    gap: 4px;
   }
 
   .btn-offer-ars {
-    min-height: 42px;
-    font-size: 0.875rem;
-    border-radius: 9px;
+    min-height: 40px;
+    font-size: 0.84375rem;
+    border-radius: 8px;
   }
 
   .btn-secondary-usd {
-    min-height: 33px;
+    min-height: 32px;
     font-size: 0.71875rem;
-    border-radius: 8px;
-    padding: 5px 8px;
+    border-radius: 7px;
+    padding: 4px 8px;
   }
 
   .offer-trust-badges {
