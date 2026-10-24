@@ -901,19 +901,17 @@ summary:focus-visible,
 }
 
 /* ==========================================================================
-   HERO BLUEPRINT: PLANO DE TRANSFORMACIÓN OPERATIVA
+   HERO JOURNEY CARD: EL CAMINO EXACTO PARA SALIR DE LA OPERACIÓN
    ========================================================================== */
-.hero-blueprint {
+.hero-journey-card {
   position: relative;
   width: 100%;
   max-width: 720px;
   margin-inline: auto;
   margin-bottom: 22px;
-  background-color: #FFFDF9;
-  background-image: radial-gradient(rgba(242, 107, 29, 0.12) 1px, transparent 1px);
-  background-size: 16px 16px;
-  border: 1px solid rgba(242, 107, 29, 0.35);
-  border-radius: 14px;
+  background: linear-gradient(180deg, #FFFFFF 0%, #FFFDFB 100%);
+  border: 1px solid rgba(242, 107, 29, 0.32);
+  border-radius: 16px;
   box-shadow:
     0 16px 38px -6px rgba(15, 10, 22, 0.12),
     0 4px 14px rgba(242, 107, 29, 0.14),
@@ -922,75 +920,66 @@ summary:focus-visible,
   transition: transform 160ms var(--ease-out), box-shadow 160ms var(--ease-out);
 }
 
-/* Corner Cotas (+) */
-.blueprint-cota {
-  position: absolute;
-  font-family: monospace, ui-monospace, sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 1;
-  color: rgba(242, 107, 29, 0.55);
-  pointer-events: none;
-  user-select: none;
-  z-index: 2;
-}
-
-.blueprint-cota-tl { top: 6px; left: 8px; }
-.blueprint-cota-tr { top: 6px; right: 8px; }
-.blueprint-cota-bl { bottom: 6px; left: 8px; }
-.blueprint-cota-br { bottom: 6px; right: 8px; }
-
-/* Blueprint Header */
-.blueprint-header {
+/* Header */
+.journey-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 18px;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  padding: 12px 18px;
+  background: linear-gradient(180deg, #FAF7F3 0%, #F4EFEA 100%);
   border-bottom: 1px solid rgba(242, 107, 29, 0.18);
-  font-size: 0.75rem;
+  gap: 12px;
 }
 
-.blueprint-title-wrap {
-  display: inline-flex;
+.journey-title-group {
+  display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
-.blueprint-tag-pill {
+.journey-pill-badge {
   font-family: var(--font-display);
   font-size: 0.625rem;
   font-weight: 800;
   letter-spacing: 0.08em;
-  padding: 2px 7px;
-  border-radius: 4px;
+  padding: 3px 8px;
+  border-radius: 999px;
   background-color: rgba(242, 107, 29, 0.14);
+  border: 1px solid rgba(242, 107, 29, 0.35);
   color: var(--action-text);
   line-height: 1.2;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
-.blueprint-title-text {
+.journey-heading {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 0.78125rem;
-  letter-spacing: 0.04em;
+  font-weight: 800;
+  font-size: 0.8125rem;
+  letter-spacing: -0.01em;
   color: var(--ink);
+  line-height: 1.25;
+  text-align: left;
+  margin: 0;
 }
 
-.blueprint-meta-tag {
+.journey-meta-tag {
   font-family: var(--font-body);
-  font-size: 0.71875rem;
-  font-weight: 600;
+  font-size: 0.6875rem;
+  font-weight: 700;
   color: var(--text-2);
-  background: rgba(29, 21, 38, 0.05);
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(29, 21, 38, 0.08);
   padding: 3px 8px;
-  border-radius: 4px;
+  border-radius: 6px;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
-/* Blueprint Stages Grid */
-.blueprint-stages {
+/* Stages Grid */
+.journey-stages {
   display: flex;
   align-items: stretch;
   justify-content: space-between;
@@ -999,7 +988,7 @@ summary:focus-visible,
   width: 100%;
 }
 
-.stage-card {
+.journey-step {
   flex: 1 1 0;
   min-width: 0;
   display: flex;
@@ -1007,33 +996,33 @@ summary:focus-visible,
   align-items: center;
   text-align: center;
   padding: 12px 10px 10px;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.92);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.94);
   border: 1px solid rgba(29, 21, 38, 0.08);
   box-shadow: 0 2px 8px rgba(15, 10, 22, 0.04);
   transition: transform 140ms var(--ease-out), box-shadow 140ms var(--ease-out);
 }
 
-.stage-card-fire {
+.journey-step-pain {
   border-color: rgba(239, 68, 68, 0.28);
   background: linear-gradient(180deg, #FFFFFF 0%, #FFF5F2 100%);
 }
 
-.stage-card-system.is-highlighted {
-  border: 1.5px solid rgba(242, 107, 29, 0.5);
+.journey-step-system.is-featured {
+  border: 1.5px solid rgba(242, 107, 29, 0.55);
   background: linear-gradient(180deg, #FFFDFB 0%, #FFF3E8 100%);
   box-shadow:
-    0 6px 18px rgba(242, 107, 29, 0.18),
+    0 8px 22px rgba(242, 107, 29, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.95);
   transform: translateY(-2px);
 }
 
-.stage-card-scale {
+.journey-step-scale {
   border-color: rgba(21, 128, 61, 0.3);
   background: linear-gradient(180deg, #FFFFFF 0%, #F0FDF4 100%);
 }
 
-.stage-phase-badge {
+.journey-step-tag {
   display: inline-block;
   font-family: var(--font-display);
   font-size: 0.625rem;
@@ -1044,40 +1033,40 @@ summary:focus-visible,
   white-space: nowrap;
 }
 
-.stage-badge-fire {
+.journey-tag-pain {
   color: #DC2626;
 }
 
-.stage-badge-system {
+.journey-tag-system {
   color: var(--action-text);
   background: rgba(242, 107, 29, 0.12);
   padding: 1px 6px;
   border-radius: 4px;
 }
 
-.stage-badge-scale {
+.journey-tag-scale {
   color: #15803D;
 }
 
-/* Illustrated Visual Box */
-.stage-illu-box {
+/* 2.5D SVG Illustration Wrapper */
+.journey-illu-wrap {
   width: 100%;
-  max-width: 92px;
-  height: 72px;
+  max-width: 100px;
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 8px;
 }
 
-.blueprint-illu {
+.journey-illu-svg {
   width: 100%;
   height: 100%;
-  max-height: 72px;
+  max-height: 80px;
   display: block;
 }
 
-.stage-info {
+.journey-info {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1085,7 +1074,7 @@ summary:focus-visible,
   gap: 2px;
 }
 
-.stage-title {
+.journey-title {
   font-family: var(--font-display);
   font-size: 0.84375rem;
   font-weight: 800;
@@ -1093,33 +1082,33 @@ summary:focus-visible,
   color: var(--ink);
 }
 
-.stage-card-scale .stage-title {
+.journey-step-scale .journey-title {
   color: #15803D;
 }
 
-.stage-desc {
+.journey-desc {
   font-family: var(--font-body);
-  font-size: 0.71875rem;
+  font-size: 0.6875rem;
   color: var(--text-2);
   line-height: 1.25;
 }
 
 /* Connectors */
-.stage-connector {
+.journey-connector {
   flex: 0 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 24px;
+  padding-top: 28px;
 }
 
-.stage-arrow-svg {
-  color: rgba(242, 107, 29, 0.7);
+.journey-arrow-svg {
+  color: rgba(242, 107, 29, 0.75);
   display: block;
 }
 
-/* Blueprint Specs Footer */
-.blueprint-specs {
+/* Bottom Specs Bar */
+.journey-specs-bar {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1133,19 +1122,19 @@ summary:focus-visible,
   color: var(--text-2);
 }
 
-.blueprint-spec-item {
+.journey-spec-pill {
   display: inline-flex;
   align-items: center;
   gap: 5px;
   color: var(--ink);
 }
 
-.blueprint-spec-item svg {
+.journey-spec-pill svg {
   color: var(--status-green);
   flex-shrink: 0;
 }
 
-.blueprint-spec-sep {
+.journey-spec-dot {
   color: rgba(242, 107, 29, 0.5);
   font-weight: 800;
 }
@@ -1251,8 +1240,8 @@ summary:focus-visible,
     margin-bottom: 16px;
   }
 
-  /* Blueprint Mobile */
-  .hero-blueprint {
+  /* Journey Card Mobile */
+  .hero-journey-card {
     border-radius: 12px;
     margin-bottom: 16px;
     box-shadow:
@@ -1261,84 +1250,79 @@ summary:focus-visible,
       inset 0 1px 0 rgba(255, 255, 255, 0.95);
   }
 
-  .blueprint-cota {
-    font-size: 11px;
-  }
-
-  .blueprint-cota-tl { top: 4px; left: 5px; }
-  .blueprint-cota-tr { top: 4px; right: 5px; }
-  .blueprint-cota-bl { bottom: 4px; left: 5px; }
-  .blueprint-cota-br { bottom: 4px; right: 5px; }
-
-  .blueprint-header {
-    padding: 7px 10px;
+  .journey-header {
+    padding: 8px 10px;
     justify-content: center;
+    text-align: center;
   }
 
-  .blueprint-title-wrap {
-    gap: 6px;
+  .journey-title-group {
+    flex-direction: column;
+    gap: 4px;
+    align-items: center;
   }
 
-  .blueprint-tag-pill {
+  .journey-pill-badge {
     font-size: 0.5625rem;
-    padding: 2px 5px;
+    padding: 2px 6px;
   }
 
-  .blueprint-title-text {
-    font-size: 0.6875rem;
-    letter-spacing: 0.02em;
+  .journey-heading {
+    font-size: 0.71875rem;
+    text-align: center;
+    line-height: 1.2;
   }
 
-  .blueprint-meta-tag {
+  .journey-meta-tag {
     display: none;
   }
 
-  .blueprint-stages {
+  .journey-stages {
     padding: 10px 6px 8px;
     gap: 2px;
   }
 
-  .stage-card {
+  .journey-step {
     padding: 7px 4px 6px;
     border-radius: 8px;
   }
 
-  .stage-phase-badge {
+  .journey-step-tag {
     font-size: 0.5rem;
     letter-spacing: 0.03em;
     margin-bottom: 4px;
   }
 
-  .stage-illu-box {
-    max-width: 58px;
-    height: 46px;
+  .journey-illu-wrap {
+    max-width: 60px;
+    height: 48px;
     margin-bottom: 4px;
   }
 
-  .blueprint-illu {
-    max-height: 46px;
+  .journey-illu-svg {
+    max-height: 48px;
   }
 
-  .stage-title {
+  .journey-title {
     font-size: 0.6875rem;
     line-height: 1.15;
   }
 
-  .stage-desc {
+  .journey-desc {
     font-size: 0.5625rem;
     line-height: 1.15;
   }
 
-  .stage-connector {
+  .journey-connector {
     padding-top: 14px;
   }
 
-  .stage-arrow-svg {
+  .journey-arrow-svg {
     width: 12px;
     height: 10px;
   }
 
-  .blueprint-specs {
+  .journey-specs-bar {
     padding: 6px 8px;
     gap: 6px;
     font-size: 0.65625rem;
@@ -1346,12 +1330,12 @@ summary:focus-visible,
     justify-content: center;
   }
 
-  .blueprint-spec-item {
+  .journey-spec-pill {
     font-size: 0.625rem;
     gap: 3px;
   }
 
-  .blueprint-spec-item svg {
+  .journey-spec-pill svg {
     width: 10px;
     height: 10px;
   }
