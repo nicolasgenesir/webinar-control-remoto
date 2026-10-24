@@ -1,8 +1,11 @@
 const CONFIG = {
   CHECKOUT_URL: "https://nicolasgenesir.tiendup.com/e/control-remoto-ordena-delegar-y-tener-un-negocio-replicable",
+  CHECKOUT_USD_URL: "https://nicolasgenesir.tiendup.com/e/control-remoto-ordena-delegar-y-tener-un-negocio-replicable?currency=USD",
   CLOSE_AT: "2026-11-04T23:59:00-03:00",
   CTA_VALUE: 23999,
   CURRENCY: "ARS",
+  CTA_USD_VALUE: 24,
+  USD_CURRENCY: "USD",
 };
 
 function withTracking(url) {
@@ -13,10 +16,12 @@ function withTracking(url) {
   return u.toString();
 }
 
-function trackAndGo(url, name) {
+function trackAndGo(url, name, value, currency) {
   if (window.fbq) {
     fbq('trackCustom', 'ClicComprarLanding', {
-      content_name: name, value: CONFIG.CTA_VALUE, currency: CONFIG.CURRENCY
+      content_name: name,
+      value: typeof value === 'number' ? value : CONFIG.CTA_VALUE,
+      currency: currency || CONFIG.CURRENCY,
     });
   }
   setTimeout(() => { window.location.href = withTracking(url); }, 300);
@@ -96,10 +101,27 @@ function trackAndGo(url, name) {
         }
       }
     });
+
+    const heroBtn = document.getElementById('hero-cta-btn');
+    if (heroBtn) {
+      heroBtn.setAttribute('aria-disabled', 'true');
+      heroBtn.removeAttribute('href');
+      if (closedText) {
+        const textSpan = heroBtn.querySelector('.btn-text');
+        if (textSpan) {
+          textSpan.textContent = closedText;
+          const arrow = heroBtn.querySelector('.btn-arrow');
+          if (arrow) arrow.style.display = 'none';
+        } else {
+          heroBtn.textContent = closedText;
+        }
+      }
+    }
   }
 
   function setupCtas() {
     const rawUrl = (CONFIG.CHECKOUT_URL || '').trim();
+    const rawUsdUrl = (CONFIG.CHECKOUT_USD_URL || rawUrl).trim();
     const isLocalPreview =
       window.location.hostname === 'localhost' ||
       window.location.hostname === '127.0.0.1' ||
@@ -122,8 +144,10 @@ function trackAndGo(url, name) {
     }
 
     let trackedUrl = rawUrl;
+    let trackedUsdUrl = rawUsdUrl;
     try {
       trackedUrl = withTracking(rawUrl);
+      trackedUsdUrl = withTracking(rawUsdUrl);
     } catch (err) {
       console.warn('[Control Remoto] URL de checkout inválida:', err);
       disableAllCtas(null);
@@ -132,7 +156,8 @@ function trackAndGo(url, name) {
 
     ctaElements.forEach((el) => {
       el.removeAttribute('aria-disabled');
-      el.setAttribute('href', trackedUrl);
+      const isUsd = el.getAttribute('data-cta') === 'cierre-usd';
+      el.setAttribute('href', isUsd ? trackedUsdUrl : trackedUrl);
     });
   }
 
@@ -143,12 +168,18 @@ function trackAndGo(url, name) {
         return;
       }
 
-      const rawUrl = (CONFIG.CHECKOUT_URL || '').trim();
+      const isUsd = el.getAttribute('data-cta') === 'cierre-usd';
+      const targetUrl = isUsd ? (CONFIG.CHECKOUT_USD_URL || CONFIG.CHECKOUT_URL) : (CONFIG.CHECKOUT_URL || '');
+      const rawUrl = (targetUrl || '').trim();
       if (!rawUrl) {
         event.preventDefault();
         console.warn('[Control Remoto] Clic en CTA detectado (modo preview sin CHECKOUT_URL).');
         return;
       }
+
+      const val = isUsd ? (CONFIG.CTA_USD_VALUE || 24) : CONFIG.CTA_VALUE;
+      const curr = isUsd ? (CONFIG.USD_CURRENCY || 'USD') : CONFIG.CURRENCY;
+      const ctaName = el.getAttribute('data-cta') || 'cta';
 
       if (
         event.metaKey ||
@@ -159,19 +190,29 @@ function trackAndGo(url, name) {
       ) {
         if (window.fbq) {
           fbq('trackCustom', 'ClicComprarLanding', {
-            content_name: el.getAttribute('data-cta') || 'cta',
-            value: CONFIG.CTA_VALUE,
-            currency: CONFIG.CURRENCY,
+            content_name: ctaName,
+            value: val,
+            currency: curr,
           });
         }
         return;
       }
 
       event.preventDefault();
-      const ctaName = el.getAttribute('data-cta') || 'cta';
-      trackAndGo(rawUrl, ctaName);
+      trackAndGo(rawUrl, ctaName, val, curr);
     });
   });
+
+  function initHeroCtaScroll() {
+    const heroBtn = document.getElementById('hero-cta-btn');
+    if (!heroBtn) return;
+    heroBtn.addEventListener('click', (event) => {
+      const offerTarget = document.getElementById('oferta');
+      if (!offerTarget) return;
+      event.preventDefault();
+      offerTarget.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }
 
   /* ========================================================================
      3. COUNTDOWN TIMER (Banner + Closing Section)
@@ -564,6 +605,7 @@ function trackAndGo(url, name) {
   initAvatarFallbacks();
   startCountdownLoop();
   setupCtas();
+  initHeroCtaScroll();
   initCarousel();
   initScrollFluidity();
   initMobileStickyBar();

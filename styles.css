@@ -2703,50 +2703,551 @@ summary:focus-visible,
   margin-inline: auto;
 }
 
-.closing-cta-wrap {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
+/* ==========================================================================
+   TARJETA DE OFERTA COMPLETA / PILA DE VALOR (#oferta)
+   ========================================================================== */
+.offer-stack-box {
+  scroll-margin-top: 24px;
+  width: 100%;
+  max-width: 620px;
+  margin-inline: auto;
+  margin-top: 18px;
+  background: #FFFFFF;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-top: 5px solid #1D1526;
+  box-shadow:
+    0 24px 48px -12px rgba(15, 10, 22, 0.38),
+    0 8px 20px -4px rgba(15, 10, 22, 0.22);
+  padding: 22px 24px;
+  color: var(--ink);
+  text-align: left;
+  position: relative;
 }
 
-.closing-price-meta {
-  font-size: 0.75rem;
-  font-weight: 600;
+.offer-badge-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.offer-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(242, 107, 29, 0.10);
+  border: 1px solid rgba(242, 107, 29, 0.25);
+  font-family: var(--font-display);
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: var(--action-text);
+  text-transform: uppercase;
+}
+
+.offer-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #16A34A;
+  box-shadow: 0 0 0 2px rgba(22, 163, 74, 0.25);
+  flex-shrink: 0;
+}
+
+.offer-discount-chip {
+  display: inline-block;
+  padding: 4px 9px;
+  border-radius: 6px;
+  background: #DC2626;
+  color: #FFFFFF;
+  font-family: var(--font-display);
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  box-shadow: 0 2px 6px rgba(220, 38, 38, 0.25);
+}
+
+.offer-headline {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 800;
   color: var(--ink);
+  letter-spacing: -0.01em;
+  margin-bottom: 14px;
+}
+
+.offer-stack-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.offer-stack-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 10px;
+  background: #FAF8F5;
+  border: 1px solid rgba(29, 21, 38, 0.06);
+  border-radius: 10px;
+}
+
+.offer-check {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(22, 163, 74, 0.14);
+  color: #15803D;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.offer-item-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.offer-item-title {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.25;
+}
+
+.offer-item-sub {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.71875rem;
+  color: var(--text-secondary);
+  line-height: 1.25;
+  margin-top: 1px;
+}
+
+.offer-item-val {
+  font-family: var(--font-display);
+  font-size: 0.78125rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  text-align: right;
+}
+
+.offer-val-free {
+  color: #15803D;
+  background: rgba(22, 163, 74, 0.10);
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+/* Pricing Block */
+.offer-pricing-block {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1.5px dashed rgba(29, 21, 38, 0.14);
+}
+
+.offer-total-val-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  padding-inline: 4px;
+}
+
+.offer-total-label {
+  font-family: var(--font-display);
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+}
+
+.offer-total-number {
+  font-family: var(--font-display);
+  font-size: 0.84375rem;
+  font-weight: 800;
+  color: #92400E;
+  text-decoration: line-through;
+}
+
+.offer-prices-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: linear-gradient(135deg, #FFF8F2 0%, #FFEDDE 100%);
+  border: 1.5px solid rgba(242, 107, 29, 0.35);
+  border-radius: 12px;
+  padding: 8px 14px;
+  margin-bottom: 8px;
+}
+
+.offer-original-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.offer-orig-label {
+  font-family: var(--font-display);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.offer-orig-strike {
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.offer-orig-strike del {
+  text-decoration: line-through;
+  color: #9CA3AF;
+}
+
+.offer-orig-strike small {
+  font-size: 0.75rem;
+  color: #9CA3AF;
+}
+
+.offer-current-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.offer-curr-label {
+  font-family: var(--font-display);
+  font-size: 0.625rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: #C24300;
+  text-transform: uppercase;
+}
+
+.offer-price-tag {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+}
+
+.offer-price-currency {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: var(--action-text);
+}
+
+.offer-price-amount {
+  font-family: var(--font-display);
+  font-size: 1.875rem;
+  font-weight: 900;
+  color: var(--ink);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.offer-price-suffix {
+  font-family: var(--font-display);
+  font-size: 0.8125rem;
+  font-weight: 800;
+  color: var(--text-secondary);
+}
+
+.offer-usd-note {
   text-align: center;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+}
+
+.offer-usd-note strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.offer-actions-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.btn-offer-ars {
+  width: 100%;
+  min-height: 50px;
+  font-size: 1rem;
+  font-weight: 800;
+  justify-content: center;
+  box-shadow: 0 8px 20px -3px rgba(242, 107, 29, 0.45);
+}
+
+.btn-secondary-usd {
+  width: 100%;
+  min-height: 40px;
+  padding: 8px 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #FFFFFF;
+  border: 1.5px solid rgba(29, 21, 38, 0.18);
+  border-radius: 10px;
+  font-family: var(--font-display);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--ink);
+  text-decoration: none;
+  transition:
+    background-color 140ms var(--ease-out),
+    border-color 140ms var(--ease-out),
+    transform 140ms var(--ease-out);
+}
+
+.btn-secondary-usd:hover {
+  background: #F8F7FA;
+  border-color: var(--ink);
+  transform: translateY(-1px);
+}
+
+.btn-usd-arrow {
+  color: var(--action-text);
+  font-weight: 800;
+  transition: transform 140ms var(--ease-out);
+}
+
+.btn-secondary-usd:hover .btn-usd-arrow {
+  transform: translateX(3px);
+}
+
+.offer-trust-badges {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.6875rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.trust-badge-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.trust-badge-item svg {
+  color: #16A34A;
+}
+
+.trust-badge-dot {
+  opacity: 0.4;
 }
 
 @media (max-width: 767px) {
   .section-closing {
-    padding-block: 28px;
+    padding-block: 16px 26px;
+  }
+
+  .closing-event-pill {
+    font-size: 0.625rem;
+    padding: 3px 10px;
+    margin-bottom: 6px;
+  }
+
+  .closing-title {
+    font-size: 1.1875rem;
+    line-height: 1.2;
+    margin-bottom: 8px;
   }
 
   .closing-countdown {
     grid-template-columns: repeat(4, 1fr);
     width: 100%;
-    max-width: 340px;
+    max-width: 320px;
     gap: 6px;
+    margin-bottom: 8px;
   }
 
   .countdown-box {
-    padding: 8px 4px;
+    padding: 6px 3px;
   }
 
   .countdown-number {
-    font-size: 1.75rem;
+    font-size: 1.375rem;
   }
 
   .countdown-label {
-    font-size: 0.59375rem;
-    letter-spacing: 0.04em;
+    font-size: 0.5625rem;
   }
 
-  .closing-cta-wrap,
-  .closing-cta-wrap .btn-primary {
-    width: 100%;
-    min-height: 52px;
-    font-size: 0.96875rem;
+  .closing-contrast {
+    font-size: 0.8125rem;
+    line-height: 1.3;
+    margin-bottom: 8px;
+  }
+
+  .offer-stack-box {
+    scroll-margin-top: 8px;
+    padding: 10px 10px;
+    border-radius: 14px;
+    margin-top: 8px;
+  }
+
+  .offer-badge-strip {
+    margin-bottom: 5px;
+  }
+
+  .offer-badge-pill {
+    font-size: 0.59375rem;
+    padding: 2.5px 7px;
+  }
+
+  .offer-discount-chip {
+    font-size: 0.59375rem;
+    padding: 2.5px 6px;
+  }
+
+  .offer-headline {
+    font-size: 0.875rem;
+    margin-bottom: 5px;
+  }
+
+  .offer-stack-list {
+    gap: 3px;
+  }
+
+  .offer-stack-item {
+    padding: 3.5px 7px;
+    gap: 7px;
+  }
+
+  .offer-check {
+    width: 15px;
+    height: 15px;
+  }
+
+  .offer-check svg {
+    width: 10px;
+    height: 10px;
+  }
+
+  .offer-item-title {
+    font-size: 0.71875rem;
+    line-height: 1.2;
+  }
+
+  /* Ocultamos el subtitulo en mobile para que los 6 items ocupen menos de 140px de alto y entre todo en 1 sola pantalla */
+  .offer-item-sub {
+    display: none;
+  }
+
+  .offer-item-val {
+    font-size: 0.6875rem;
+  }
+
+  .offer-val-free {
+    padding: 1px 4px;
+    font-size: 0.59375rem;
+  }
+
+  .offer-pricing-block {
+    margin-top: 6px;
+    padding-top: 6px;
+  }
+
+  .offer-total-val-row {
+    margin-bottom: 4px;
+  }
+
+  .offer-total-label {
+    font-size: 0.59375rem;
+  }
+
+  .offer-total-number {
+    font-size: 0.71875rem;
+  }
+
+  .offer-prices-row {
+    padding: 5px 9px;
+    gap: 8px;
+    margin-bottom: 4px;
+  }
+
+  .offer-orig-label {
+    font-size: 0.53125rem;
+  }
+
+  .offer-orig-strike {
+    font-size: 0.75rem;
+  }
+
+  .offer-orig-strike small {
+    font-size: 0.65625rem;
+  }
+
+  .offer-curr-label {
+    font-size: 0.53125rem;
+  }
+
+  .offer-price-currency {
+    font-size: 0.875rem;
+  }
+
+  .offer-price-amount {
+    font-size: 1.375rem;
+  }
+
+  .offer-price-suffix {
+    font-size: 0.65625rem;
+  }
+
+  .offer-usd-note {
+    font-size: 0.65625rem;
+    margin-bottom: 5px;
+  }
+
+  .offer-actions-group {
+    gap: 5px;
+  }
+
+  .btn-offer-ars {
+    min-height: 42px;
+    font-size: 0.875rem;
+    border-radius: 9px;
+  }
+
+  .btn-secondary-usd {
+    min-height: 33px;
+    font-size: 0.71875rem;
+    border-radius: 8px;
+    padding: 5px 8px;
+  }
+
+  .offer-trust-badges {
+    margin-top: 4px;
+    font-size: 0.59375rem;
+    gap: 5px;
   }
 }
 

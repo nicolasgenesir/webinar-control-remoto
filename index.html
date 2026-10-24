@@ -29,7 +29,7 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/plus-jakarta-sans-800.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/plus-jakarta-sans-700.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=12">
+  <link rel="stylesheet" href="styles.css?v=13">
 
   <!-- Meta Pixel Code -->
   <script>
@@ -387,8 +387,8 @@
           </div>
 
           <div class="hero-cta-block">
-            <a href="https://nicolasgenesir.tiendup.com/e/control-remoto-ordena-delegar-y-tener-un-negocio-replicable" class="btn-primary" data-cta="hero">
-              <span class="btn-text">Reservar mi lugar por $23.999</span>
+            <a href="#oferta" class="btn-primary hero-btn-scroll" id="hero-cta-btn">
+              <span class="btn-text">Reservar mi lugar</span>
               <svg class="icon-lucide btn-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M5 12h14"/>
                 <path d="m12 5 7 7-7 7"/>
@@ -1064,8 +1064,8 @@
       </div>
     </section>
 
-    <!-- 7 · Cierre con cuenta regresiva (100% Centrado + 2da mención Zoom + Única mención WhatsApp) -->
-    <section class="section-closing" id="cierre">
+    <!-- 7 · Cierre y Oferta Completa de la Masterclass (Pila de Valor + Comparación de Precios + Botones ARS/USD) -->
+    <section class="section-closing section-offer" id="cierre">
       <div class="container closing-inner reveal-item">
         <p class="closing-event-pill">JUEVES 5 DE NOVIEMBRE · 16:00 H (ARG) · EN VIVO POR ZOOM</p>
         <h2 class="closing-title" id="closing-title">Las entradas cierran el miércoles 4 de noviembre a las 23:59</h2>
@@ -1091,15 +1091,152 @@
 
         <p class="closing-contrast">O seguís otro año apagando incendios en el local, o el jueves 5 tenés el sistema para empezar a soltarlo.</p>
 
-        <div class="closing-cta-wrap">
-          <a href="https://nicolasgenesir.tiendup.com/e/control-remoto-ordena-delegar-y-tener-un-negocio-replicable" class="btn-primary btn-closing" data-cta="cierre">
-            <span class="btn-text">Reservar mi lugar por $23.999</span>
-            <svg class="icon-lucide btn-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M5 12h14"/>
-              <path d="m12 5 7 7-7 7"/>
-            </svg>
-          </a>
-          <p class="closing-price-meta">Incluye acceso a la clase, los 3 bonus y al grupo de WhatsApp de la clase</p>
+        <!-- Tarjeta de Oferta Completa / Pila de Valor -->
+        <div class="offer-stack-box" id="oferta" role="region" aria-label="Oferta completa de la masterclass Control Remoto">
+          <div class="offer-badge-strip">
+            <span class="offer-badge-pill">
+              <span class="offer-badge-dot" aria-hidden="true"></span>
+              PASE COMPLETO · EN VIVO POR ZOOM
+            </span>
+            <span class="offer-discount-chip">52% OFF HOY</span>
+          </div>
+
+          <h3 class="offer-headline">Todo lo que incluye tu inscripción:</h3>
+
+          <!-- Pila de Valor (Value Stack) -->
+          <ul class="offer-stack-list" aria-label="Detalle de valor incluido">
+            <li class="offer-stack-item">
+              <span class="offer-check" aria-hidden="true">
+                <svg class="icon-lucide" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+              </span>
+              <div class="offer-item-content">
+                <strong class="offer-item-title">Masterclass en vivo (90 min) con Nico Genesir</strong>
+                <span class="offer-item-sub">El sistema paso a paso para delegar y que tu negocio funcione sin vos.</span>
+              </div>
+              <span class="offer-item-val" aria-label="Valuado en">$45.000</span>
+            </li>
+
+            <li class="offer-stack-item">
+              <span class="offer-check" aria-hidden="true">
+                <svg class="icon-lucide" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+              </span>
+              <div class="offer-item-content">
+                <strong class="offer-item-title">Bonus 1 · Tablero Operativo de Sucursal</strong>
+                <span class="offer-item-sub">Plantilla de control de caja, stock y tareas sin estar encima.</span>
+              </div>
+              <span class="offer-item-val" aria-label="Valuado en">$25.000</span>
+            </li>
+
+            <li class="offer-stack-item">
+              <span class="offer-check" aria-hidden="true">
+                <svg class="icon-lucide" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+              </span>
+              <div class="offer-item-content">
+                <strong class="offer-item-title">Bonus 2 · Mapa de Negocio y Manual de Puestos</strong>
+                <span class="offer-item-sub">Estandarización de roles para que el equipo resuelva sin vos.</span>
+              </div>
+              <span class="offer-item-val" aria-label="Valuado en">$20.000</span>
+            </li>
+
+            <li class="offer-stack-item">
+              <span class="offer-check" aria-hidden="true">
+                <svg class="icon-lucide" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+              </span>
+              <div class="offer-item-content">
+                <strong class="offer-item-title">Bonus 3 · Herramienta IA "Qué delego primero"</strong>
+                <span class="offer-item-sub">Prompt guiado para soltar las 3 tareas que más tiempo te quitan.</span>
+              </div>
+              <span class="offer-item-val" aria-label="Valuado en">$20.000</span>
+            </li>
+
+            <li class="offer-stack-item">
+              <span class="offer-check" aria-hidden="true">
+                <svg class="icon-lucide" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+              </span>
+              <div class="offer-item-content">
+                <strong class="offer-item-title">Sesión en vivo de Preguntas y Respuestas</strong>
+                <span class="offer-item-sub">Nico responde los cuellos de botella de tu local en directo.</span>
+              </div>
+              <span class="offer-item-val offer-val-free">Incalculable</span>
+            </li>
+
+            <li class="offer-stack-item">
+              <span class="offer-check" aria-hidden="true">
+                <svg class="icon-lucide" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+              </span>
+              <div class="offer-item-content">
+                <strong class="offer-item-title">Grabación de la clase + Grupo de WhatsApp</strong>
+                <span class="offer-item-sub">Repasá el método cuando quieras y conectá con otros dueños.</span>
+              </div>
+              <span class="offer-item-val offer-val-free">Incluido</span>
+            </li>
+          </ul>
+
+          <!-- Resumen de Contraste y Precios -->
+          <div class="offer-pricing-block">
+            <div class="offer-total-val-row">
+              <span class="offer-total-label">VALOR REAL ACUMULADO:</span>
+              <span class="offer-total-number">+ $110.000 ARS</span>
+            </div>
+
+            <div class="offer-prices-row">
+              <div class="offer-original-group">
+                <span class="offer-orig-label">PRECIO REGULAR:</span>
+                <span class="offer-orig-strike"><del>$49.999 ARS</del> <small>(o <del>49.99 USD</del>)</small></span>
+              </div>
+              <div class="offer-current-group">
+                <span class="offer-curr-label">HOY CON 52% OFF:</span>
+                <div class="offer-price-tag">
+                  <span class="offer-price-currency">$</span>
+                  <strong class="offer-price-amount">23.999</strong>
+                  <span class="offer-price-suffix">ARS</span>
+                </div>
+              </div>
+            </div>
+
+            <p class="offer-usd-note">
+              ¿Estás fuera de Argentina? Podés pagar en dólares: <strong>24 USD</strong>
+            </p>
+
+            <!-- Botones Duales de Compra (ARS + USD) -->
+            <div class="offer-actions-group">
+              <a href="https://nicolasgenesir.tiendup.com/e/control-remoto-ordena-delegar-y-tener-un-negocio-replicable" class="btn-primary btn-offer-ars" data-cta="cierre">
+                <span class="btn-text">Reservar mi lugar por $23.999 ARS</span>
+                <svg class="icon-lucide btn-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14"/>
+                  <path d="m12 5 7 7-7 7"/>
+                </svg>
+              </a>
+
+              <a href="https://nicolasgenesir.tiendup.com/e/control-remoto-ordena-delegar-y-tener-un-negocio-replicable?currency=USD" class="btn-secondary-usd" data-cta="cierre-usd">
+                <svg class="icon-lucide" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"/>
+                  <line x1="2" x2="22" y1="12" y2="12"/>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                </svg>
+                <span>Pagar en USD ($24 USD) desde el exterior</span>
+                <span class="btn-usd-arrow" aria-hidden="true">→</span>
+              </a>
+            </div>
+
+            <!-- Micro-garantías de confianza -->
+            <div class="offer-trust-badges">
+              <span class="trust-badge-item">
+                <svg class="icon-lucide" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <span>Pago 100% seguro</span>
+              </span>
+              <span class="trust-badge-dot" aria-hidden="true">·</span>
+              <span class="trust-badge-item">
+                <svg class="icon-lucide" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                <span>Acceso inmediato</span>
+              </span>
+              <span class="trust-badge-dot" aria-hidden="true">·</span>
+              <span class="trust-badge-item">
+                <svg class="icon-lucide" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                <span>WhatsApp incluido</span>
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1144,6 +1281,6 @@
     </div>
   </div>
 
-  <script src="script.js?v=9"></script>
+  <script src="script.js?v=10"></script>
 </body>
 </html>
