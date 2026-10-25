@@ -1,6 +1,7 @@
 const CONFIG = {
   CHECKOUT_URL: "https://nicolasgenesir.tiendup.com/e/control-remoto-ordena-delegar-y-tener-un-negocio-replicable",
   CHECKOUT_USD_URL: "https://nicolasgenesir.tiendup.com/e/control-remoto-ordena-delegar-y-tener-un-negocio-replicable?currency=USD",
+  VSL_VIDEO_URL: "https://pub-355df2374f5f4f62b40a9c59829ce52d.r2.dev/final.mp4",
   CLOSE_AT: "2026-11-04T23:59:00-03:00",
   CTA_VALUE: 23999,
   CURRENCY: "ARS",
@@ -601,6 +602,165 @@ function trackAndGo(url, name, value, currency) {
     observer.observe(closingSection);
   }
 
+  /* ========================================================================
+     7. VSL PLAYER (Cloudflare R2 + Smart Unmute + Dopamine Non-linear Progress)
+     ======================================================================== */
+  function initVslPlayer() {
+    const video = document.getElementById('vsl-video');
+    const container = document.getElementById('vsl-container');
+    const overlay = document.getElementById('vsl-unmute-overlay');
+    const centerPlay = document.getElementById('vsl-center-play');
+    const fill = document.getElementById('vsl-progress-fill');
+    const playBtn = document.getElementById('vsl-play-btn');
+    const muteBtn = document.getElementById('vsl-mute-btn');
+    const skipBack = document.getElementById('vsl-skip-back');
+    const skipFwd = document.getElementById('vsl-skip-fwd');
+    const controls = document.getElementById('vsl-controls');
+
+    if (!video || !overlay || !fill) return;
+
+    if (CONFIG.VSL_VIDEO_URL && CONFIG.VSL_VIDEO_URL.trim() && video.src !== CONFIG.VSL_VIDEO_URL) {
+      video.src = CONFIG.VSL_VIDEO_URL.trim();
+    }
+
+    let isAutoplayPreview = true;
+    let controlsTimer = null;
+
+    const playIcon = playBtn ? playBtn.querySelector('.vsl-icon-play') : null;
+    const pauseIcon = playBtn ? playBtn.querySelector('.vsl-icon-pause') : null;
+    const volOnIcon = muteBtn ? muteBtn.querySelector('.vsl-icon-volume-on') : null;
+    const volOffIcon = muteBtn ? muteBtn.querySelector('.vsl-icon-volume-off') : null;
+
+    function resetControlsTimer() {
+      if (controls) controls.classList.add('is-visible');
+      if (controlsTimer) clearTimeout(controlsTimer);
+      if (!video.paused && !isAutoplayPreview) {
+        controlsTimer = setTimeout(() => {
+          if (controls) controls.classList.remove('is-visible');
+        }, 2800);
+      }
+    }
+
+    function syncPlayState() {
+      const isPaused = video.paused;
+      if (playIcon) playIcon.style.display = isPaused ? 'block' : 'none';
+      if (pauseIcon) pauseIcon.style.display = isPaused ? 'none' : 'block';
+      if (centerPlay) centerPlay.style.display = (isPaused && !isAutoplayPreview) ? 'flex' : 'none';
+      if (isPaused) {
+        if (controls) controls.classList.add('is-visible');
+        if (controlsTimer) clearTimeout(controlsTimer);
+      } else {
+        resetControlsTimer();
+      }
+    }
+
+    function syncMuteState() {
+      const isMuted = video.muted;
+      if (volOnIcon) volOnIcon.style.display = isMuted ? 'none' : 'block';
+      if (volOffIcon) volOffIcon.style.display = isMuted ? 'block' : 'none';
+    }
+
+    function handleSmartUnmute() {
+      video.currentTime = 0;
+      video.muted = false;
+      video.volume = 1;
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch((err) => {
+          console.warn('[VSL] Reproducción con audio rechazada:', err);
+        });
+      }
+      overlay.style.display = 'none';
+      isAutoplayPreview = false;
+      syncMuteState();
+      syncPlayState();
+      resetControlsTimer();
+    }
+
+    overlay.addEventListener('click', handleSmartUnmute);
+    overlay.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        handleSmartUnmute();
+      }
+    });
+
+    function togglePlay() {
+      if (isAutoplayPreview) {
+        handleSmartUnmute();
+        return;
+      }
+      if (video.paused) {
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
+    }
+
+    video.addEventListener('click', togglePlay);
+    if (centerPlay) centerPlay.addEventListener('click', togglePlay);
+    if (playBtn) playBtn.addEventListener('click', togglePlay);
+
+    if (skipBack) {
+      skipBack.addEventListener('click', (e) => {
+        e.stopPropagation();
+        video.currentTime = Math.max(0, video.currentTime - 5);
+        resetControlsTimer();
+      });
+    }
+
+    if (skipFwd) {
+      skipFwd.addEventListener('click', (e) => {
+        e.stopPropagation();
+        video.currentTime = Math.min(video.duration || 1000, video.currentTime + 5);
+        resetControlsTimer();
+      });
+    }
+
+    if (muteBtn) {
+      muteBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (isAutoplayPreview) {
+          handleSmartUnmute();
+          return;
+        }
+        video.muted = !video.muted;
+        syncMuteState();
+        resetControlsTimer();
+      });
+    }
+
+    video.addEventListener('play', syncPlayState);
+    video.addEventListener('pause', syncPlayState);
+    video.addEventListener('volumechange', syncMuteState);
+
+    // Barra de progreso ficticia no-lineal (pow 0.45)
+    video.addEventListener('timeupdate', () => {
+      if (!video.duration || Number.isNaN(video.duration)) return;
+      const ratio = video.currentTime / video.duration;
+      const fakePercent = Math.min(100, Math.pow(Math.max(0, ratio), 0.45) * 100);
+      fill.style.width = fakePercent.toFixed(2) + '%';
+    });
+
+    if (container) {
+      container.addEventListener('mousemove', resetControlsTimer);
+      container.addEventListener('touchstart', resetControlsTimer, { passive: true });
+    }
+
+    // Autoplay silenciado inicial
+    video.muted = true;
+    const initialPlay = video.play();
+    if (initialPlay !== undefined) {
+      initialPlay.then(() => {
+        syncPlayState();
+        syncMuteState();
+      }).catch(() => {
+        syncPlayState();
+        syncMuteState();
+      });
+    }
+  }
+
   // Initialize everything
   initAvatarFallbacks();
   startCountdownLoop();
@@ -609,4 +769,5 @@ function trackAndGo(url, name, value, currency) {
   initCarousel();
   initScrollFluidity();
   initMobileStickyBar();
+  initVslPlayer();
 })();
