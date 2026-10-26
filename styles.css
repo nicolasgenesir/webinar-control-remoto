@@ -2547,8 +2547,27 @@ summary:focus-visible,
 }
 
 /* ==========================================================================
-   6 · PREGUNTAS FRECUENTES (6 Questions, Centered Header)
+   6 · PREGUNTAS FRECUENTES (Dark Obsidian Theme, Objection Handling)
    ========================================================================== */
+.section-faq {
+  padding-block: var(--space-12);
+  background-color: #0B0813;
+  background-image: radial-gradient(ellipse 70% 50% at 50% 100%, rgba(109, 63, 201, 0.12) 0%, transparent 60%);
+  border-top: 1px solid rgba(255, 140, 66, 0.2);
+  color: #FFFFFF;
+}
+
+.section-faq .eyebrow-pill {
+  background: rgba(255, 122, 41, 0.12);
+  border: 1px solid rgba(255, 140, 66, 0.4);
+  color: #FF9E54;
+  box-shadow: 0 0 16px rgba(242, 107, 29, 0.2);
+}
+
+.section-faq .section-title {
+  color: #FFFFFF;
+}
+
 .faq-wrap {
   max-width: 680px;
   margin-inline: auto;
@@ -2561,16 +2580,18 @@ summary:focus-visible,
 }
 
 .faq-item {
-  background: linear-gradient(180deg, #FFFFFF 0%, #FDFBF9 100%);
-  border: 1px solid rgba(29, 21, 38, 0.1);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-md);
-  padding-inline: 14px;
-  box-shadow: var(--shadow-sm);
+  padding-inline: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  transition: border-color 160ms var(--ease-out), background-color 160ms var(--ease-out);
 }
 
 .faq-item[open] {
-  border-color: rgba(242, 107, 29, 0.5);
-  box-shadow: var(--shadow-md);
+  border-color: rgba(255, 140, 66, 0.5);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 16px rgba(242, 107, 29, 0.15);
 }
 
 .faq-question {
@@ -2583,7 +2604,7 @@ summary:focus-visible,
   font-family: var(--font-display);
   font-size: 0.90625rem;
   font-weight: 700;
-  color: var(--ink);
+  color: #FFFFFF;
   cursor: pointer;
   list-style: none;
   text-align: left;
@@ -2595,7 +2616,7 @@ summary:focus-visible,
 
 .faq-chevron {
   flex-shrink: 0;
-  color: var(--action-text);
+  color: #FF8C42;
   transition: transform 160ms var(--ease-out);
 }
 
@@ -2607,8 +2628,23 @@ summary:focus-visible,
   padding-bottom: 12px;
   font-size: 0.84375rem;
   line-height: 1.44;
-  color: var(--text-secondary);
+  color: #B8B2C8;
   text-align: left;
+}
+
+.faq-cta-bottom {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+}
+
+.faq-cta-note {
+  font-size: 0.8125rem;
+  color: #A39BB2;
+  font-weight: 600;
 }
 
 /* ==========================================================================
@@ -3286,15 +3322,44 @@ summary:focus-visible,
     font-size: 0.625rem;
     gap: 6px;
   }
+
+  .section-faq {
+    padding-block: 24px 32px;
+  }
+
+  .faq-item {
+    padding-inline: 12px;
+  }
+
+  .faq-question {
+    font-size: 0.84375rem;
+    min-height: 44px;
+    padding-block: 8px;
+  }
+
+  .faq-answer {
+    font-size: 0.78125rem;
+    line-height: 1.4;
+    padding-bottom: 10px;
+  }
+
+  .faq-cta-bottom {
+    margin-top: 20px;
+    gap: 8px;
+  }
+
+  .faq-cta-note {
+    font-size: 0.75rem;
+  }
 }
 
 /* ==========================================================================
    8 · PIE Y BOTÓN DE TÉRMINOS Y CONDICIONES
    ========================================================================== */
 .site-footer {
-  background-color: var(--surface-base);
-  border-top: 1px solid var(--border-subtle);
-  padding-block: 20px 26px;
+  background-color: #07040C;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-block: 22px 28px;
 }
 
 .footer-top-row {
@@ -3308,13 +3373,13 @@ summary:focus-visible,
 .footer-line {
   font-size: var(--step-0);
   font-weight: 600;
-  color: var(--ink);
+  color: #FFFFFF;
   text-align: center;
 }
 
 .footer-disclaimer-short {
   font-size: 0.71875rem;
-  color: var(--text-secondary);
+  color: #7C758B;
   max-width: 68ch;
   text-align: center;
 }
@@ -3333,13 +3398,13 @@ summary:focus-visible,
   min-height: 38px;
   padding: 7px 14px;
   border-radius: 999px;
-  background-color: var(--surface-alt);
-  border: 1px solid rgba(29, 21, 38, 0.14);
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   box-shadow: var(--shadow-sm);
   font-family: var(--font-display);
   font-size: 0.75rem;
   font-weight: 700;
-  color: var(--ink);
+  color: #FFFFFF;
   text-decoration: none;
   transition:
     background-color 120ms var(--ease-out),
@@ -3348,14 +3413,14 @@ summary:focus-visible,
 }
 
 .btn-footer-terms .icon-lucide {
-  color: var(--action-text);
+  color: #FF8C42;
   flex-shrink: 0;
 }
 
 @media (hover: hover) and (pointer: fine) {
   .btn-footer-terms:hover {
-    background-color: var(--surface-accent-softer);
-    border-color: var(--action);
+    background-color: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 140, 66, 0.5);
     transform: translateY(-1px);
   }
 }
